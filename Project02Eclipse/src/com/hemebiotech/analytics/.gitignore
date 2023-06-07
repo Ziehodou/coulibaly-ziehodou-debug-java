@@ -1,3 +1,5 @@
 /AnalyticsCounter.class
 /ISymptomReader.class
 /ReadSymptomDataFromFile.class
+/ISymptomWriter.class
+/WriteSymptomDataToFile.class

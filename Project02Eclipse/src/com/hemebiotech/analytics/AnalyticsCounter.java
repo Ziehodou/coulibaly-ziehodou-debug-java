@@ -1,14 +1,35 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
 		
 	
 	public static void main(String args[]) throws Exception {
-		// first get input
+	
+		
+		ReadSymptomDataFromFile readerFile = new ReadSymptomDataFromFile("symptoms.txt");
+		WriteSymptomDataToFile writeSymptom = new WriteSymptomDataToFile("result.out");
+		
+		
+		/** 
+		 *   Recuperation des symptoms depuis le fichier
+		 * 
+		 * 
+		
+		 */
+		List<String> listeSymptoms = readerFile.getSymptoms();
+		
+		  writeSymptom.afficherSymptoms(listeSymptoms);
+		
+		
+		// next generate output
+			
+			
+			writeSymptom.setSymptoms(listeSymptoms);
+		
 		
 	
 		
