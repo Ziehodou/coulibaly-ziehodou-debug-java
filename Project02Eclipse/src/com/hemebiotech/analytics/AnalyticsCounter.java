@@ -7,6 +7,15 @@ import java.util.TreeMap;
 public class AnalyticsCounter {
 		
 	
+	public ISymptomReader reader;
+	public ISymptomWriter writer;
+	
+	public AnalyticsCounter(ISymptomReader readeur, ISymptomWriter writeur)
+	{
+		this.reader=readeur;
+		this.writer = writeur;
+	}
+	
 	public static void main(String args[]) throws Exception {
 	
 		
