@@ -1,12 +1,14 @@
 package com.hemebiotech.analytics;
 
+import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Map;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.Set;
 import java.util.TreeMap;
+import com.hemebiotech.analytics.ReadSymptomDataFromFile;
 
 
 /**
@@ -18,7 +20,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	
 	
 	
-	private String pathFile;
+	private String pathFileWriter;
 	
 	
 	public WriteSymptomDataToFile()
@@ -27,7 +29,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	}
 	public WriteSymptomDataToFile(String cheminFichier)
 	{
-		this.pathFile = cheminFichier;
+		this.pathFileWriter = cheminFichier;
 	}
 
 	
@@ -38,27 +40,31 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 * @void
 	 */
 	
-	public void setSymptoms(List<String> listeSymptom)
+	public void writeSymptoms(Map<String,Integer> symptoms)
 	{
 		
 		try
 		{
 			//FileWriter writer = new FileWriter(this.pathFile);
-			BufferedWriter writer =new BufferedWriter(new FileWriter(this.pathFile));
+			BufferedWriter writer =new BufferedWriter(new FileWriter(this.pathFileWriter));
 			
-			TreeMap<String, Integer> tmp = this.trierListeSymptoms(listeSymptom);
 			
-			Set<String>listeTriee = tmp.keySet();
 			
-			/** 
-			 * Ecris les symptoms triés et classés par ordre 
-			 * alphabetique dans le fichioer $this.pathFile
-			 * */
+			
+			//TreeMap<String, Integer> tmp = this.sortSymptoms(symptoms);
+			
+			//Set<String>listeTriee = tmp.keySet();
+			
+			Set<String>listeTriee = symptoms.keySet();
+			
+			
 			for(String element : listeTriee)
 			{
-				writer.write(element+": "+"nombre ocurence:"+" "+tmp.get(element)+","+"\n");
+				writer.write(element+": "+"nombre ocurence:"+" "+symptoms.get(element)+","+"\n");
 			}
 			 writer.close();
+			 
+			
 		}
 		catch (IOException e) {
 			e.printStackTrace();
@@ -73,7 +79,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 * @return a treeMap Objet listeTriee // Liste des symptoms triés
 	 */
 	
-	public TreeMap<String, Integer> trierListeSymptoms(List<String> liste)
+	public TreeMap<String, Integer> sortSymptoms(List<String> liste)
 	{
 		TreeMap<String, Integer>listeTriee = new TreeMap<>();
 		
@@ -108,10 +114,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 * 
 	 * qui affiche les symptoms dans la console
 	 */
-	public void afficherSymptoms(List<String> liste)
+	public void afficherSymptoms(Map<String, Integer> tmp)
 	{
 			
-		TreeMap<String, Integer> tmp =this.trierListeSymptoms(liste);
+		//TreeMap<String, Integer> tmp =this.trierListeSymptoms(liste);
 		
 		Set<String>listeTriee = tmp.keySet();
 		
