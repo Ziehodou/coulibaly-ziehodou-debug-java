@@ -14,6 +14,6 @@ import java.util.*;
 public interface ISymptomWriter {
 
 	
-	void setSymptoms(List<String> listeSymptom);
+	void writeSymptoms(Map<String,Integer> symptoms);
 	
 }
