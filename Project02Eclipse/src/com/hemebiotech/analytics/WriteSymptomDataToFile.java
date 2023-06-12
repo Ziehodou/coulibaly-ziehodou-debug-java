@@ -23,7 +23,10 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	 * dans lequel les symptoms seront ecris par ordre alphabetique
 	 */
 	private String pathFileWriter;
-		
+		/**
+		 * 
+		 * @param cheminFichier, chemin du fichier dans lequel on doit ecrire les symptyoms triés
+		 */
 	public WriteSymptomDataToFile(String cheminFichier)
 	{
 		this.pathFileWriter = cheminFichier;
@@ -32,8 +35,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	
 	/**
 	 * Ecrit les donnees dans le fichier
-	 * @param listeSymptom,une Map qui contient les symptoms à assigner dans le fichier de sortir
-	 * @throws  IOException, si le fichier de sortir est introuvable
+	 * @param symptoms,une Map qui contient les symptoms à assigner dans le fichier de sortir
+	 * @throws IOException, quand le fichier de sortir des symptoms est introuvable
 	 */
 	public void writeSymptoms(Map<String,Integer> symptoms)
 	{
@@ -61,8 +64,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter {
 	
 	/**
 	 * Cette fonction trie les symptoms et compte le nombre occurence de chaque symptom
-	 * @param liste,prends en parametre une liste(instance ArrayList) qui contien les symptoms 
-	 * @return a treeMap Objet listeTriee, qui correspond à liste des symptoms triés
+	 * @param liste,prends en parametre une liste(instance ArrayList) qui contient les symptoms 
+	 * @return a treeMap Objet listeTriee, qui correspond la liste des symptoms triés
 	 */
 	public TreeMap<String, Integer> sortSymptoms(List<String> liste)
 	{
