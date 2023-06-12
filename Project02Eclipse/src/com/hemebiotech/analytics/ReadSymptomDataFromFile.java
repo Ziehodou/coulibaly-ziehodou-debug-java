@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Implemente l'interface ISymptomReader
+ * @author Ziehodou
+ */
 
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
@@ -14,10 +17,8 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	
 	/**
 	 * 
-	 * @param filepath a full or partial path to file with symptom strings in it, one per line
+	 * @param cheminFichier a full or partial path to file with symptom strings in it, one per line
 	 */
-	
-	
 	public ReadSymptomDataFromFile (String cheminFichier) {
 		this.filepath = cheminFichier;
 	}
@@ -26,8 +27,9 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 	/**
 	 *  Mettre tous les symptoms dans une liste,
 	 * cette fonction retourne la liste des symptoms contenus dans le fichier
-	 */
-	public List<String> getSymptoms() {
+	 * @return result, la liste des symptoms recuperes depuis le fichier des symptoms
+	 * @throws IOException, quand le fichier des symptoms est introuvable
+	 */	public List<String> getSymptoms() {
 		 
 		ArrayList<String> result = new ArrayList<String>();
 		

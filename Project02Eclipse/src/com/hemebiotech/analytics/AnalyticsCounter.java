@@ -2,11 +2,13 @@ package com.hemebiotech.analytics;
 
 import java.util.Map;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeMap;
+
 
 public class AnalyticsCounter {
-		
+		/**
+		 * Object de type Map<String,Integer>
+		 * 			Pour stocker la liste des symptoms triés
+		 */
 	private static Map<String,Integer> sortSymptom;
 	
 	public static void main(String args[]) throws Exception {
@@ -18,28 +20,23 @@ public class AnalyticsCounter {
 		
 		/** 
 		 *   Recuperation des symptoms depuis le fichier
-		 * 
-		 * 
-		
 		 */
 		
 		List<String> listeSymptoms = readerFile.getSymptoms();
 		
-		
-		 // writeSymptom.afficherSymptoms(listeSymptoms);
-		
-		/*
-		 * Plymorphisme avec la methode sortSymptoms 
-		 * qui prends comme arguemnt une Map mais retourne une TreeMap
+		/** 
+		 *Retourne les symptoms tries  avec le nombre d'occurence de chaque symptoms
+		 *dans une TreeMap dont la cle estr le symptom et la valeur son occurence
 		 */
-		
 		sortSymptom= writeSymptom.sortSymptoms(listeSymptoms);
-		// next generate output
-			
-			
+		/**
+		 *  Générer le fichier de sortir result.out.txt
+		 */
 		writeSymptom.writeSymptoms(sortSymptom);
 		
-		// Affichage des symptoms dans la console
+		/**
+		 *  Affichage des symptoms dans la console
+		 */
 		writeSymptom.afficherSymptoms(sortSymptom);
 		
 	}
